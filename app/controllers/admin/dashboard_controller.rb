@@ -4,6 +4,8 @@ class Admin::DashboardController < ApplicationController
     all_products = Product.all
     all_products.each do |product|
       @products += product.quantity
-    end  
+    end 
+    
+    @catagories = Category.count
   end
 end
