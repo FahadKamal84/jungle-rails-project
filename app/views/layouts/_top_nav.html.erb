@@ -40,6 +40,15 @@
             </li>
             <% end %>
             <li><%= link_to 'About', [:about], class: "nav-link" %></li>
+        
+            <% if current_user %>
+              <li class ="nav_link">Signed in as <%= current_user.email %></li>
+              <li><%= link_to "Logout", '/logout', class: "nav-link"%></li>
+            <% else %>
+              <li><%= link_to 'Login', '/login', class: "nav-link" %></li> 
+              <li><%= link_to 'Signup', '/signup', class: "nav-link"%></li>
+            <% end %>
+
           <%# </ul>
         </li> %>
       </ul>
