@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   #   get 'categories/new'
   #   get 'categories/create'
   # end
-  get 'about', to: 'about#index'
   root to: 'products#index'
+  
+  get 'about', to: 'about#index'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
