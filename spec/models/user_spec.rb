@@ -7,8 +7,8 @@ RSpec.describe User, type: :model do
         first_name: "firsttest",
         last_name: "lasttest",
         email: "test@test.com",
-        password: "1234",
-        password_confirmation: "1234"
+        password: "1234567",
+        password_confirmation: "1234567"
       )
     end
 
@@ -32,6 +32,12 @@ RSpec.describe User, type: :model do
       @user.last_name = nil
       expect(@user.save).to be false
       expect(@user.errors.full_messages).to include("Last name can't be blank")
+    end
+
+    it "password must have a minimum length of six" do
+      @user.password = "1234"
+      expect(@user.save).to be false
+      expect(@user.errors.full_messages).to include("Password is too short")
     end
 
   end
