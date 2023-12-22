@@ -21,6 +21,11 @@ RSpec.describe Product, type: :model do
       expect(@product.errors.full_messages).to include("Name can't be blank")
     end
     
+    it "validates that price field is not blank" do
+      @product.price_cents = nil
+      expect(@product.save).to be false
+      expect(@product.errors.full_messages).to include("Price can't be blank")
+    end
 
   end
 end
