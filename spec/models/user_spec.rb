@@ -12,6 +12,10 @@ RSpec.describe User, type: :model do
       )
     end
 
-    
+    it "password and password_confirmation must be identical" do
+      expect(@user.save).to be true
+    end
+
+
   end
 end
