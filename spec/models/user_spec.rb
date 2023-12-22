@@ -16,6 +16,11 @@ RSpec.describe User, type: :model do
       expect(@user.save).to be true
     end
 
+    it "validates that email field is not blank" do
+      @user.email = nil
+      expect(@user.save).to be false
+      expect(@user.errors.full_messages).to include("Email can't be blank")
+    end
 
   end
 end
