@@ -22,5 +22,11 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Email can't be blank")
     end
 
+    it "validates that first_name field is not blank" do
+      @user.first_name = nil
+      expect(@user.save).to be false
+      expect(@user.errors.full_messages).to include("First name can't be blank")
+    end
+
   end
 end
