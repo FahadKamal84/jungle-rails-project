@@ -11,6 +11,9 @@ RSpec.describe Product, type: :model do
         category: @category
         )
     end
+    it "validates a product with all four fields set will save" do
+      expect(@product.save).to be true
+    end
 
   end
 end
