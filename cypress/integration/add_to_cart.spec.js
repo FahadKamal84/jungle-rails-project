@@ -4,5 +4,11 @@ describe('test add to cart', () => {
     cy.visit("localhost:3000")
   })
 
+  it("can add product to cart", () => {
+    
+    cy.get('.products article').first().find('button').click({force: true});
+
+    cy.get('.navbar').should('contain', 'My Cart (1)');
+  });
 
 })
